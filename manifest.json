@@ -1,0 +1,15 @@
+{
+	"manifest_version": 2,
+	"name": "The First 10 Kanji",
+	"version": "0.2",
+	"description": "Replaces english words with the first 10 kanji.",
+	"content_scripts": 
+	[
+		{
+			"matches": ["*://*/*"],
+			"js": ["words.js", "word_parser.js"],
+			"run_at": "document_end"
+		}
+	]
+}
+

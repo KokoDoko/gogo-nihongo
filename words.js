@@ -1,0 +1,1 @@
+let words = [["water", "みず"], ["tree", "き"], ["sun", "ひ"], ["forest", "もり"]]
