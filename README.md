@@ -21,3 +21,4 @@ let words = [["water", "みず"], ["tree", "き"], ["sun", "ひ"], ["forest", "�
 - User can select lists
 - User can input own words
 - Put lists online instead of in the extension itself
+- Save as CRX file and put in the chrome store
