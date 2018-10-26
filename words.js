@@ -1,1 +1,20 @@
-let words = [["water", "みず"], ["tree", "き"], ["sun", "ひ"], ["forest", "もり"]]
+let words = [
+["person", "人"],
+["enter","入"],
+["power","力"],
+["sword","刀"],
+["street","丁"],
+["finish","了"],
+["again","又"],
+["big", "大"],
+["large", "大"],
+["book", "本"],
+["sun", "日"],
+["day", "日"],
+["in","中"],
+["inside","中"],
+["center","中"],
+["middle","中"],
+["moon","月"],
+["month","月"]
+]
