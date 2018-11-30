@@ -1,15 +1,17 @@
 {
-	"manifest_version": 2,
-	"name": "The First 10 Kanji",
-	"version": "0.2",
-	"description": "Replaces english words with the first 10 kanji.",
+	"manifest_version": 3,
+	"name": "Go Go Nihongo",
+	"version": "0.31",
+	"description": "Replace English words with Kanji",
+	"web_accessible_resources": [
+		"words.csv"
+	],
 	"content_scripts": 
 	[
 		{
 			"matches": ["*://*/*"],
-			"js": ["words.js", "word_parser.js"],
-			"run_at": "document_end"
+			"js": ["papaparse.min.js", "main.js"],
+			"run_at": "document_start"
 		}
 	]
 }
-
