@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "Go Go Nihongo",
-	"version": "0.31",
+	"version": "0.54",
 	"description": "Replace English words with Kanji",
 	"web_accessible_resources": [
 		"words.csv"
@@ -11,7 +11,7 @@
 		{
 			"matches": ["*://*/*"],
 			"js": ["papaparse.min.js", "main.js"],
-			"run_at": "document_start"
+			"run_at": "document_end"
 		}
 	]
 }

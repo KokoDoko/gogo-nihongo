@@ -74,6 +74,7 @@ function startApp(){
 function showResults(obj) {
 	words = obj.data
 	words.shift()
+
 	walk(document.body)
 }
 
