@@ -10,7 +10,8 @@
 	[
 		{
 			"matches": ["*://*/*"],
-			"js": ["papaparse.min.js", "main.js"],
+			"js": ["papaparse.min.js", "replace.min.js", "main.js"],
+			"css" : ["style.css"],
 			"run_at": "document_end"
 		}
 	]

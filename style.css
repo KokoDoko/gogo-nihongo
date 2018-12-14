@@ -1,0 +1,9 @@
+.kanji {
+    color:green;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.kanji:hover {
+    /*todo*/
+}
