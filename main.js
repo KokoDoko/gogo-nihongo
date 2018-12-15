@@ -11,11 +11,13 @@ function handleText(node) {
   for (let w of words) {
     let english = w[0]
     let japanese = w[1]
-    // TODO CHECK CASE INSENSITIVE new RegExp("\\b(" + w[0] + ")\\b", "gi")   // what is b() ? //
+
+    // let regexp = /\b(w[0])\b/ig  // word boundary, global, case insensitive
+    let regexp = new RegExp("\\b(" + english + ")\\b", "gi")   // word boundary, global, case insensitive
     let optionalkana = w[2]
     findAndReplaceDOMText(node, {
       preset: 'prose',
-      find: english,
+      find: regexp,
       replace: japanese,
       wrapClass: 'kanji',
       wrap: 'span',
