@@ -12,10 +12,10 @@ The extension replaces words mentioned in the file `words.csv` with kanji.
 
 ## TODO
 
-- Extension icon
-- Styling, toolip for the kanji
-- The CSV file has to be loaded remotely
-- Create CSV files for JLPT 5, 4
-- User can select JLPT version
-- User can add words locally
-- Save the extension as a CRX file, put in the chrome store
+- [ ] Extension icon
+- [x] Styling, toolip for the kanji
+- [ ] Create CSV files for JLPT or by subject
+- [ ] User can select JLPT version or subject
+- [ ] CSV file is included in extension, but can be updated remotely
+- [ ] User can add words locally
+- [ ] Save the extension as a CRX file, put in the chrome store

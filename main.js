@@ -9,15 +9,17 @@ let words = []
 function handleText(node) {
   // rows in the CSV
   for (let w of words) {
-    let english = " " + w[0] + " "
-    let japanese = " " + w[1] + " "
+    let english = w[0]
+    let japanese = w[1]
     // TODO CHECK CASE INSENSITIVE new RegExp("\\b(" + w[0] + ")\\b", "gi")   // what is b() ? //
+    let optionalkana = w[2]
     findAndReplaceDOMText(node, {
       preset: 'prose',
       find: english,
       replace: japanese,
       wrapClass: 'kanji',
-      wrap: 'span'
+      wrap: 'span',
+      dataTooltip: w[0]
     }) 
   }
 }
@@ -28,12 +30,9 @@ function handleText(node) {
 //
 // ************************************************
 function startApp() {
-  // url inside chrome extension
-  const url = chrome.runtime.getURL("words.csv")
-
-  // url in local debug window
-  // console.log("debug html - do not upload")
-  // const url = "./gogo-nihongo/words.csv"
+  // get url for chrome extension asset
+  const url = (DEBUGKANJI) ? "./gogo-nihongo/words.csv" : chrome.runtime.getURL("words.csv")
+  
 
   Papa.parse(url, {
     download: true,

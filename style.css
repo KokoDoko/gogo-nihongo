@@ -1,9 +1,63 @@
 .kanji {
-    color:green;
-    font-weight: bold;
-    cursor: pointer;
+  color:green;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+  background-color:rgba(30,180,30,0.3);
+  border-radius:4px;
+  padding-left:2px;
+  padding-right:2px;
+  margin-left:4px; 
+  margin-right:4px;
 }
 
-.kanji:hover {
-    /*todo*/
+/* Hide the tooltip content by default */
+.kanji:before,
+.kanji:after {
+  /*visibility: hidden;*/
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+
+/* Position tooltip above the element */
+.kanji:before {
+  z-index: 2;
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -40px;
+  padding: 9px;
+  width:80px;
+  border-radius: 3px;
+  background-color: rgba(0,0,0,0.9);
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 1.1em;
+  box-sizing:border-box;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+.kanji:after {
+  position: absolute;
+  z-index: 2;
+  top: 128%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-bottom: 5px solid rgba(0,0,0,0.9);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+.kanji:hover:before,
+.kanji:hover:after {
+  /*visibility: visible;*/
+  opacity: 1;
 }
