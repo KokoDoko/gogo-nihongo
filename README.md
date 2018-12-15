@@ -12,7 +12,7 @@ The extension replaces words mentioned in the file `words.csv` with kanji.
 
 ## TODO
 
-- [ ] Extension icon
+- [ ] Improve icon
 - [x] Styling, toolip for the kanji
 - [ ] Create CSV files for JLPT or by subject
 - [ ] User can select JLPT version or subject

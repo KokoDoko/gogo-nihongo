@@ -31,8 +31,10 @@ function handleText(node) {
 // ************************************************
 function startApp() {
   // get url for chrome extension asset
-  const url = (DEBUGKANJI) ? "./gogo-nihongo/words.csv" : chrome.runtime.getURL("words.csv")
+  const url = chrome.runtime.getURL("words.csv")
   
+  // get url when debugging html
+  // const url = "./gogo-nihongo/words.csv"
 
   Papa.parse(url, {
     download: true,
