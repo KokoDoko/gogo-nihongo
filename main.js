@@ -1,4 +1,5 @@
 let words = []
+let list = 0
 
 // ************************************************
 //
@@ -32,11 +33,24 @@ function handleText(node) {
 //
 // ************************************************
 function startApp() {
+  console.log("starting main js")
   // get url for chrome extension asset
   const url = chrome.runtime.getURL("words.csv")
+
+  // listen for changes in the user settings
+
+  chrome.runtime.onMessage.addListener(function (request) {
+      let selection = JSON.parse(request.selection)
+      console.log("update user selection")
+      console.log(selection)
+  })
   
-  // get url when debugging html
+  // not used: the url when debugging javascript without the extension
   // const url = "./gogo-nihongo/words.csv"
+
+  // this can be used to send messages from the dom page to the extension
+  //console.log("sending to runtime")
+  //chrome.runtime.sendMessage({ greeting: "hello" })
 
   Papa.parse(url, {
     download: true,
