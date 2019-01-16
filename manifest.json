@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "Go Go Nihongo",
-	"version": "0.57",
+	"version": "0.86",
 	"description": "This extension replaces English words in any webpage with Kanji. You can select which Kanji you want to learn.",
 	"web_accessible_resources": [
 		"words.csv"
@@ -10,7 +10,7 @@
 		"scripts": [
 			"background.js"
 		],
-		"persistent": true
+		"persistent": false
 	},
 	"permissions": [
 		"storage"
