@@ -25,14 +25,29 @@ The extension replaces words mentioned in the file `words.csv` with kanji.
 
 After editing, upgrade the version number in the `manifest.json` file, this should automatically update the extension in chrome.
 
+## Scripts
+
+The extension has three scripts that run in their own context:
+
+- Background.js - this is the extension script that loads and saves user preferences, and tells the DOM to start translating.
+- Popup.js - this is the script for the small popup menu. The script will send changes in user preferences to background.js
+- Main.js - this is the DOM script that gets inserted in all HTML pages that the user visits. This script parses the DOM content and replaces it with kanji from the csv file.
+
+Communication between these three files is done via `sendMessage` and `addListener`. 
+
+[Chrome Extension Documentation](https://developer.chrome.com/extensions/getstarted)
+
 ## TODO
 
+- [ ] Load CSV once from background script, instead of once per HTML page.
 - [ ] Improve extension icon
 - [ ] Improve styling, toolip for the kanji
 - [ ] Improve style, layout for popup menu
 - [ ] Create one CSV with jlpt5, jlpt4, etc
 - [x] Create popup menu
 - [x] User can select which JLPT list to use
+- [ ] Test with large JLPT file
+- [ ] Separate file per JLPT level, dropdown selection
 - [ ] Put extension in the chrome store
 - [ ] Show "translating" message while working
 
