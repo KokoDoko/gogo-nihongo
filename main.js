@@ -1,5 +1,4 @@
-let lists = []
-let selection = [true, true, true]
+let selection = []
 
 // ************************************************
 //
@@ -7,30 +6,31 @@ let selection = [true, true, true]
 //
 // ************************************************
 function startApp() {
-    console.log("loading word list")
-
     // listen for changes in the user settings
     chrome.runtime.onMessage.addListener(function (request) {
         if(request.selection) {
             selection = JSON.parse(request.selection)
-            console.log("updated selection")
-            console.log(selection)
-            // now reload the page because we can't change back words
+            // now reload the page because we can't change back the DOM to how it was before
+            // reloading should re-trigger loadCSVfile !!!
             window.location.reload()
         }
     })
-
+     
     // we have to ask the current selection from the background js script
-    chrome.runtime.sendMessage({ initsettings: true }, function (response) {
-        console.log('received start settings => ' + response.initsettings);
-        selection = response.initsettings
+    chrome.runtime.sendMessage({ selection: true }, function (response) {
+        console.log('Starting Kanji Buddy with this selection:')
+        console.log(response.selection);
+        selection = response.selection
         loadCSVfile()
     });
-
 }
 
+// ************************************************
+//
+// load CSV file and parse it using the papaparse library
+//
+// ************************************************
 function loadCSVfile(){
-    // get url for chrome extension asset
     const url = chrome.runtime.getURL("words.csv")
 
     Papa.parse(url, {
@@ -46,21 +46,29 @@ function loadCSVfile(){
 //
 // ************************************************
 function buildWordLists(obj) {
-
-    
     let data = obj.data
-    // remove first header
+    // remove first header (english, kanji, kana, notes)
     data.shift()
-    // make separate array for each header row. each set of rows needs one header row with one cell in it (jlpt4)
+    
+    // each row in the csv with one word (ex. jlpt5) is a word list
+    // if the current selection for a list is true, add those words to the array
+    let words = []
+    let list = -1
     for (let row of data) {
         if (row.length == 1) {
-            lists.push([])
-        } else if(lists.length > 0) {
-            lists[lists.length-1].push(row)
+            // a header means this is a new list
+            list++
+        } else {
+            // if a list is part of the selection, add the word to the words list
+            // example: List variable can be 0,1,2 Selection array can be 0,0,1 This means words of list 2 are used
+            if(selection[list] == true){
+                words.push(row)
+            }
         }
     }
-    console.log(lists)
-    parseDomContent()
+    console.log("Created all words")
+    console.log(words)
+    parseDomContent(words)
 }
 
 // ************************************************
@@ -69,17 +77,8 @@ function buildWordLists(obj) {
 // options: https://github.com/padolsey/findAndReplaceDOMText
 //
 // ************************************************
-function parseDomContent() {
+function parseDomContent(words) {
     let node = document.getElementsByTagName("body")[0]
-    // add the user-selected lists to words
-    let words = []
-    for(let i = 0; i < selection.length; i++) {
-        if(selection[i] && lists[i]) {
-            words = words.concat(lists[i])
-        }
-    }
-    console.log("Created all words")
-    console.log(words)
     // rows in the CSV
     for (let w of words) {
         let english = w[0]

@@ -18,6 +18,7 @@ The extension replaces words mentioned in the file `words.csv` with kanji.
 
 ## TODO
 
+- [ ] Move storage script to background JS
 - [ ] Improve icon
 - [x] Styling, toolip for the kanji
 - [ ] Create CSV lists for JLPT or by subject
@@ -27,3 +28,4 @@ The extension replaces words mentioned in the file `words.csv` with kanji.
 - [ ] User can set On Off switch in extension menu
 - [ ] CSV files included in extension, but can be updated remotely
 - [ ] Save the extension as a CRX file, put in the chrome store
+- [ ] Show "translating" message while working
