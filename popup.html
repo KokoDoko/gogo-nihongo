@@ -1,23 +1,43 @@
 <html>
-  <head>
+
+<head>
     <title>GO GO NIHONGO</title>
     <style>
-      body {
+       body {
         font-family: sans-serif;
+        padding:0; margin:0;
       }
-      #container {
+      h3 {
+          margin-top:0px;
+      }
+      #container, #docs {
         width: 180px;
+        padding:8px;
+      }
+      #docs {
+          background-color: lightgray;
+          color:rgb(90, 90, 90);
+      }
+      a, a:visited, a:hover {
+        color:rgb(90, 90, 90);
       }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="container">
-      <h3>Choose JLPT levels</h3>
-      <div>
-        <input type="checkbox" class="jlpt" id="jlpt5" name="jlpt5"><label for="jlpt5">JLPT 5</label></div>
-        <input type="checkbox" class="jlpt" id="jlpt4" name="jlpt4"><label for="jlpt4">JLPT 4</label></div>
-        <input type="checkbox" class="jlpt" id="jlpt4" name="jlpt3"><label for="jlpt3">JLPT 3</label></div>
+        <h3>GO GO NIHONGO</h3>
+        <h4>Choose which JLPT level you are learning</h4>
+        <div><input type="checkbox" class="jlpt" id="jlpt5" name="jlpt5"><label for="jlpt5">JLPT 5</label></div>
+        <div><input type="checkbox" class="jlpt" id="jlpt4" name="jlpt4"><label for="jlpt4">JLPT 4</label></div>
+        <div><input type="checkbox" class="jlpt" id="jlpt4" name="jlpt3"><label for="jlpt3">JLPT 3</label></div>
     </div>
+    <div id="docs">
+        Go Go Nihongo replaces English words with beginner Kanji<br>
+        <a href="https://github.com/KokoDoko/gogo-nihongo" target="_blank">Documentation</a>
+    </div>
+
     <script src="popup.js"></script>
-  </body>
+</body>
+
 </html>
