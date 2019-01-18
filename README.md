@@ -3,6 +3,8 @@
 A chrome extension that replaces English words with the first basic kanji or kana characters from your study book. 
 The extension replaces words mentioned in the file `words.csv` with kanji.
 
+![demo.png](demo.png)
+
 ## Running in the browser
 
 - Download this repository. 
@@ -20,6 +22,8 @@ The extension replaces words mentioned in the file `words.csv` with kanji.
 
 - **popup.html** has the layout and css for the little popup window
 - **style.css** has the styles that show kanji and a tooltip in all html pages
+
+After editing, upgrade the version number in the `manifest.json` file, this should automatically update the extension in chrome.
 
 ## TODO
 
