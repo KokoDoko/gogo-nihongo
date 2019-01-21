@@ -1,6 +1,6 @@
 'use strict'
 
-let selection = [false, false, false]
+let selection = [false, false]
 console.log("starting background page")
 // ************************************************
 //
@@ -28,13 +28,13 @@ function initPage() {
             let s = JSON.parse(result.selection)
             console.log("cookie contains")
             console.log(s)
-            if(s.length && s.length > 0) {
+            if(s.length && s.length > 0 && s.length < 3) { // exact amount of checkmarks, otherwise reset all to false
                 selection = s
             } else {
-                selection = [false,false,false]
+                selection = [false,false]
             }
         } else {
-            selection = [false,false,false]
+            selection = [false,false]
         }
         updateBadge()
     })

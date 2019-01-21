@@ -32,7 +32,9 @@ function initCheckmarks() {
     chrome.runtime.sendMessage({ selection: true }, function (response) {
         let s = response.selection
         for (let i = 0; i < s.length; i++) {
-            checkboxes[i].checked = s[i]
+            // extra check because there may be more cookies than checkboxes, 
+            // since we are changing the csv lists so often
+            if(checkboxes[i]) checkboxes[i].checked = s[i]
         }
     })
 }

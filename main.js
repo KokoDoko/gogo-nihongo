@@ -55,7 +55,7 @@ function buildWordLists(obj) {
     let words = []
     let list = -1
     for (let row of data) {
-        if (row.length == 1) {
+        if (row[0].indexOf("jlpt") > -1) { // this is a header row
             // a header means this is a new list
             list++
         } else {
@@ -64,10 +64,9 @@ function buildWordLists(obj) {
             if(selection[list] == true){
                 words.push(row)
             }
+            
         }
     }
-    console.log("Created all words")
-    console.log(words)
     parseDomContent(words)
 }
 
